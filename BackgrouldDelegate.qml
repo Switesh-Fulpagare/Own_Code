@@ -43,42 +43,54 @@ Item {
             break;
 
         case 4:
-            cluster.configurableBackground="image/Skin_1.png"
+            cluster.configurableBackground="image/Skin_8.png"
             break;
 
         case 5:
-            cluster.configurableBackground="image/Skin_2.png"
+            cluster.configurableBackground="image/Skin_9.png"
             break;
 
         case 6:
-            cluster.configurableBackground="image/Skin_3.png"
+            cluster.configurableBackground="image/Skin_10.png"
             break;
 
         case 7:
-            cluster.configurableBackground="image/mountain_view.jpg"
+            cluster.configurableBackground="image/Skin_1.png"
             break;
 
         case 8:
-            cluster.configurableBackground="image/Red.jpg"
+            cluster.configurableBackground="image/Skin_2.png"
             break;
 
         case 9:
-            cluster.configurableBackground="image/grass.jpg"
+            cluster.configurableBackground="image/Skin_3.png"
             break;
 
         case 10:
-            cluster.configurableBackground="image/brown.jpg"
+            cluster.configurableBackground="image/mountain_view.jpg"
             break;
 
         case 11:
-            cluster.configurableBackground="image/hay.jpg"
+            cluster.configurableBackground="image/Red.jpg"
             break;
 
         case 12:
-            cluster.configurableBackground="image/skyblue.jpg"
+            cluster.configurableBackground="image/grass.jpg"
             break;
 
         case 13:
+            cluster.configurableBackground="image/brown.jpg"
+            break;
+
+        case 14:
+            cluster.configurableBackground="image/hay.jpg"
+            break;
+
+        case 15:
+            cluster.configurableBackground="image/skyblue.jpg"
+            break;
+
+        case 16:
             cluster.configurableBackground=""
             break;
 

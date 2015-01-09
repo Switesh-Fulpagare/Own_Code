@@ -102,5 +102,8 @@
         <file>image/Skin_5.png</file>
         <file>image/Skin_6.png</file>
         <file>image/Skin_7.png</file>
+        <file>image/Skin_8.png</file>
+        <file>image/Skin_9.png</file>
+        <file>image/Skin_10.png</file>
     </qresource>
 </RCC>
