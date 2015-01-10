@@ -87,7 +87,7 @@ ApplicationWindow {
                                bounce_display_gear.start()
                            }
                            rpmValue = rpmValue + 1.5
-                           speedValue = speedValue + 0.5
+                           speedValue = speedValue + 0.8
 
                            break;
                        case 4:
@@ -98,7 +98,7 @@ ApplicationWindow {
                                gear = 4
                            }
                            rpmValue = rpmValue + 1
-                           speedValue = speedValue + 1 //0.3
+                           speedValue = speedValue + 1.2
                            break;
 
                        }
@@ -110,6 +110,7 @@ ApplicationWindow {
                        }
 
                    }
+
 
 
 
@@ -326,8 +327,6 @@ ApplicationWindow {
                  source: "image/Brake_failure.png"
                }
 
-
-
         Image {
                 id: turn_left
                 x: 560
@@ -486,7 +485,7 @@ ApplicationWindow {
         Text {
             id: digitalSpeed
             x: 840
-            y: 230
+            y: 280 //230
             z: 3
             color: "#cde81d"
             text: parseInt(speedoMeter.value)
@@ -494,10 +493,11 @@ ApplicationWindow {
             font.italic: true
             smooth: true
             opacity: switch(cluster.configurableDial_index){case 1:0;break;case 2:1;break;}
-            style: Text.Raised           
+            style: Text.Raised
             font.pixelSize: 35
 
         }
+/*
         Text {
             id: speed_down
             x: 840
@@ -514,6 +514,7 @@ ApplicationWindow {
             visible: false
 
         }
+
         Text {
             id: speed_up
             x: 840
@@ -530,6 +531,7 @@ ApplicationWindow {
             visible: false
 
         }
+*/
         Image {
             id: neutral
              x: 598
@@ -611,8 +613,6 @@ ApplicationWindow {
 
                  //! [0]
              }
-
-
         Text {
             id: totalDistance
             x: 563
@@ -851,7 +851,7 @@ ApplicationWindow {
                            {
                             case 1:(Math.min(Math.max(-115, speedoMeter.value*2.6 - 115), 185));
                                 break;
-                            case 2:(Math.min(Math.max(-130, speedoMeter.value*1.8 - 130), 133)); //*2.6
+                            case 2:(Math.min(Math.max(-130, speedoMeter.value*2.2 - 130), 133));
                                 break;
                            }
 /**/
@@ -926,7 +926,7 @@ ApplicationWindow {
                 z:4
                 clip: true
                 scale: 1
-                opacity: 1                
+                opacity: 1
                 smooth: true
                 source: cluster.configurablePointer
                 transform: Rotation  {
@@ -1039,7 +1039,7 @@ ApplicationWindow {
             Listmenu {
                 id: listmenu
                 y:140; width: parent.width; height: parent.height ;anchors.margins:3
-                opacity:0                
+                opacity:0
 
             }/**/
 
@@ -1114,14 +1114,14 @@ ApplicationWindow {
             running: false
 
             NumberAnimation { target:digitalSpeed; property:"x";to:digitalSpeed.x+180; duration: 500 }
-            NumberAnimation { target:digitalSpeed; property:"y";to:digitalSpeed.y-70; duration: 500 }
+            NumberAnimation { target:digitalSpeed; property:"y";to:digitalSpeed.y-20; duration: 500 }
             NumberAnimation { target:digitalSpeed; property:"visible";to:1; duration: 100}
-            NumberAnimation { target:speed_up; property:"x";to:digitalSpeed.x+185; duration: 500 }
-            NumberAnimation { target:speed_up; property:"y";to:digitalSpeed.y-42; duration: 500 }
-            NumberAnimation { target:speed_up; property:"visible";to:1; duration: 100}
-            NumberAnimation { target:speed_down; property:"x";to:digitalSpeed.x+180; duration: 500 }
-            NumberAnimation { target:speed_down; property:"y";to:digitalSpeed.y-98; duration: 500 }
-            NumberAnimation { target:speed_down; property:"visible";to:1; duration: 100}
+            //NumberAnimation { target:speed_up; property:"x";to:digitalSpeed.x+185; duration: 500 }
+            //NumberAnimation { target:speed_up; property:"y";to:digitalSpeed.y-42; duration: 500 }
+            //NumberAnimation { target:speed_up; property:"visible";to:1; duration: 100}
+            //NumberAnimation { target:speed_down; property:"x";to:digitalSpeed.x+180; duration: 500 }
+            //NumberAnimation { target:speed_down; property:"y";to:digitalSpeed.y-98; duration: 500 }
+            //NumberAnimation { target:speed_down; property:"visible";to:1; duration: 100}
             NumberAnimation { target:display_gear; property:  "opacity"; to: 1; duration: 1500}
             NumberAnimation { target:gear_image; property:  "opacity"; to: 1; duration: 1500}
 
@@ -1191,13 +1191,17 @@ ApplicationWindow {
             NumberAnimation { target:rpm_active; property:"x";to:241 ; duration: 500 } //241
             NumberAnimation { target:rpm_inactive; property:"x";to: -30; duration: 500 }
             NumberAnimation { target:needle; property: "x"; to:switch(cluster.configurableDial_index){case 1:74;break;case 2:102;break;}duration: 500}
+
+            NumberAnimation { target: digitalSpeed; property: "x"; to: 840; duration: 500}
+            NumberAnimation { target: digitalSpeed; property: "y"; to: 280; duration: 500}
+            NumberAnimation { target: digitalSpeed; property: "visible";to:0; duration: 10}
             //NumberAnimation { target:rpmOverlay; property: "x"; to:switch(cluster.configurableDial_index){case 1:78;break;case 2:98;break;}duration: 500}
-            NumberAnimation { target:speed_up; property:"x";to:840; duration: 500 }
-            NumberAnimation { target:speed_up; property:"y";to:210; duration: 500 }
-            NumberAnimation { target:speed_up; property:"visible";to:0; duration: 100}
-            NumberAnimation { target:speed_down; property:"x";to:840; duration: 500 }
-            NumberAnimation { target:speed_down; property:"y";to:250; duration: 500 }
-            NumberAnimation { target:speed_down; property:"visible";to:0; duration: 100}
+            ///NumberAnimation { target:speed_up; property:"x";to:840; duration: 500 }
+            ///NumberAnimation { target:speed_up; property:"y";to:210; duration: 500 }
+            ///NumberAnimation { target:speed_up; property:"visible";to:0; duration: 100}
+            ///NumberAnimation { target:speed_down; property:"x";to:840; duration: 500 }
+            ///NumberAnimation { target:speed_down; property:"y";to:250; duration: 500 }
+            ///NumberAnimation { target:speed_down; property:"visible";to:0; duration: 100}
             NumberAnimation { target:display_gear; property:  "opacity"; to: 0; duration: 1500}
             NumberAnimation { target:gear_image; property:  "opacity"; to: 0; duration: 1500}
 
@@ -1216,7 +1220,7 @@ ApplicationWindow {
             NumberAnimation { target: turn_left; property: "x"; to: 560; duration: 500}
             NumberAnimation { target: turn_right; property: "x"; to: 660; duration: 500}
             NumberAnimation { target: turn_left; property: "opacity"; to: 1; duration: 500}
-            NumberAnimation { target: turn_right; property: "opacity"; to: 1; duration: 500}            
+            NumberAnimation { target: turn_right; property: "opacity"; to: 1; duration: 500}
             NumberAnimation { target: turn_left; property: "opacity"; to: 0; duration: 10}
             NumberAnimation { target: turn_right; property: "opacity"; to: 0; duration: 10}
 
@@ -1241,9 +1245,6 @@ ApplicationWindow {
             //NumberAnimation { target:petrol_indicator; property: "y"; to: 59; duration: 500 }
 
 
-            NumberAnimation { target: digitalSpeed; property: "x"; to: 840; duration: 500}
-            NumberAnimation { target: digitalSpeed; property: "y"; to: 280; duration: 500}
-            NumberAnimation { target: digitalSpeed; property: "visible";to:0; duration: 10}
 
             NumberAnimation{target: totalDistance; property: "opacity"; to: 0; duration: 100}
             NumberAnimation{target: totalDistance; property: "x"; to: 363; duration: 200}
@@ -1423,7 +1424,7 @@ ApplicationWindow {
             NumberAnimation{ target:battery_low; property: "y"; to: 220; duration: 10}
             //NumberAnimation{target: battery_low; property:  "z"; to: 0; duration: 10}
             NumberAnimation{ target:battery_low; property: "scale"; to: 0.8; duration: 10}
-            NumberAnimation{ target:battery_low; property: "opacity"; to: 1; duration: 10}            
+            NumberAnimation{ target:battery_low; property: "opacity"; to: 1; duration: 10}
             NumberAnimation{ target:battery; property: "scale"; to: 1.5; duration: 2000}
             ParallelAnimation{
                 NumberAnimation {target:battery_low; property: "opacity";from: 0.1; to: 1.0 ;loops: 15 }
